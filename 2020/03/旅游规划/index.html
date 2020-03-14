@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Hugo 0.66.0 with theme Tranquilpeak 0.4.7-BETA">
+<meta name="author" content="liuzhaojunx">
+<meta name="keywords" content="tech, C, c&#43;&#43;, pat, java, python">
+<meta name="description" content="pat 数据结构与算法题目集">
+
+
+<meta property="og:description" content="pat 数据结构与算法题目集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="旅游规划">
+<meta name="twitter:title" content="旅游规划">
+<meta property="og:url" content="https://liuzhaojunx.github.io/2020/03/%E6%97%85%E6%B8%B8%E8%A7%84%E5%88%92/">
+<meta property="twitter:url" content="https://liuzhaojunx.github.io/2020/03/%E6%97%85%E6%B8%B8%E8%A7%84%E5%88%92/">
+<meta property="og:site_name" content="liuzhaojunx的天空">
+<meta property="og:description" content="pat 数据结构与算法题目集">
+<meta name="twitter:description" content="pat 数据结构与算法题目集">
+<meta property="og:locale" content="zh-cn">
+
+  
+    <meta property="article:published_time" content="2020-03-13T10:28:59">
+  
+  
+    <meta property="article:modified_time" content="2020-03-13T10:28:59">
+  
+  
+  
+    
+      <meta property="article:section" content="cpp">
+    
+      <meta property="article:section" content="编程">
+    
+  
+  
+    
+      <meta property="article:tag" content="pat">
+    
+      <meta property="article:tag" content="最短路径">
+    
+  
+
+
+<meta name="twitter:card" content="summary">
+
+
+
+
+
+
+
+  <meta property="og:image" content="https://liuzhaojunx.github.io/images/top.jpg">
+  <meta property="twitter:image" content="https://liuzhaojunx.github.io/images/top.jpg">
+
+
+  <meta property="og:image" content="https://liuzhaojunx.github.io/images/top.jpg">
+  <meta property="twitter:image" content="https://liuzhaojunx.github.io/images/top.jpg">
+
+
+
+
+  <meta property="og:image" content="https://liuzhaojunx.github.io/images/touxiang.jpg">
+  <meta property="twitter:image" content="https://liuzhaojunx.github.io/images/touxiang.jpg">
+
+
+    <title>旅游规划</title>
+
+    <link rel="icon" href="https://liuzhaojunx.github.io/favicon.png">
+    
+
+    
+
+    <link rel="canonical" href="https://liuzhaojunx.github.io/2020/03/%E6%97%85%E6%B8%B8%E8%A7%84%E5%88%92/">
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/jquery.fancybox.min.css" integrity="sha256-vuXZ9LGmmwtjqFX1F+EKin1ThZMub58gKULUyf0qECk=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.4/helpers/jquery.fancybox-thumbs.min.css" integrity="sha256-SEa4XYAHihTcEP1f5gARTB2K26Uk8PsndQYHQC1f4jU=" crossorigin="anonymous" />
+    
+    
+    <link rel="stylesheet" href="https://liuzhaojunx.github.io/css/style-twzjdbqhmnnacqs0pwwdzcdbt8yhv8giawvjqjmyfoqnvazl0dalmnhdkvp7.min.css" />
+    
+    
+
+    
+      
+    
+    
+  </head>
+
+  <body>
+    <div id="blog">
+      <header id="header" data-behavior="5">
+  <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+  <div class="header-title">
+    <a class="header-title-link" href="https://liuzhaojunx.github.io/">liuzhaojunx的天空</a>
+  </div>
+  
+    
+      <a class="header-right-picture "
+         href="https://liuzhaojunx.github.io/#about">
+    
+    
+    
+      
+        <img class="header-picture" src="https://liuzhaojunx.github.io/images/touxiang.jpg" alt="作者的图片" />
+      
+    
+    </a>
+  
+</header>
+
+      <nav id="sidebar" data-behavior="5">
+  <div class="sidebar-container">
+    
+      <div class="sidebar-profile">
+        <a href="https://liuzhaojunx.github.io/#about">
+          <img class="sidebar-profile-picture" src="https://liuzhaojunx.github.io/images/touxiang.jpg" alt="作者的图片" />
+        </a>
+        <h4 class="sidebar-profile-name">liuzhaojunx</h4>
+        
+          <h5 class="sidebar-profile-bio">no pain no gain</h5>
+        
+      </div>
+    
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://liuzhaojunx.github.io/">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+      
+      <span class="sidebar-button-desc">首页</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://liuzhaojunx.github.io/categories">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+      
+      <span class="sidebar-button-desc">类别</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://liuzhaojunx.github.io/tags">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+      
+      <span class="sidebar-button-desc">标签</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://liuzhaojunx.github.io/archives">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+      
+      <span class="sidebar-button-desc">归档</span>
+    </a>
+  </li>
+
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://liuzhaojunx.github.io/#about">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+      
+      <span class="sidebar-button-desc">关于</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://github.com/liuzhaojunx" target="_blank" rel="noopener">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+      
+      <span class="sidebar-button-desc">GitHub</span>
+    </a>
+  </li>
+
+
+    </ul>
+    <ul class="sidebar-buttons">
+      
+  <li class="sidebar-button">
+    
+      <a class="sidebar-button-link " href="https://liuzhaojunx.github.io/index.xml">
+    
+      <i class="sidebar-button-icon fa fa-lg fa-rss"></i>
+      
+      <span class="sidebar-button-desc">RSS</span>
+    </a>
+  </li>
+
+
+    </ul>
+  </div>
+</nav>
+
+      
+  <div class="post-header-cover
+              text-center
+              post-header-cover--full"
+       style="background-image:url('/images/top.jpg')"
+       data-behavior="5">
+    
+      <div class="post-header main-content-wrap text-center">
+  
+    <h1 class="post-title" itemprop="headline">
+      旅游规划
+    </h1>
+  
+  
+  <div class="postShorten-meta post-meta">
+    
+      <time itemprop="datePublished" datetime="2020-03-13T10:28:59&#43;08:00">
+        
+  三月 13, 2020
+
+      </time>
+    
+    
+  
+  
+    <span>发布在</span>
+    
+      <a class="category-link" href="https://liuzhaojunx.github.io/categories/cpp">cpp</a>, 
+    
+      <a class="category-link" href="https://liuzhaojunx.github.io/categories/%e7%bc%96%e7%a8%8b">编程</a>
+    
+  
+
+  </div>
+
+</div>
+    
+  </div>
+
+
+      <div id="main" data-behavior="5"
+        class="hasCover
+               hasCoverMetaIn
+               hasCoverCaption">
+        <article class="post" itemscope itemType="http://schema.org/BlogPosting">
+          
+            <span class="post-header-cover-caption caption">沉迷刷题无法自拔</span>
+          
+          
+          <div class="post-content markdown" itemprop="articleBody">
+            <div class="main-content-wrap">
+              <p>pat 数据结构与算法题目集</p>
+<h1 id="题目描述">题目描述</h1>
+<p>有了一张自驾旅游路线图，你会知道城市间的高速公路长度、以及该公路要收取的过路费。现在需要你写一个程序，帮助前来咨询的游客找一条出发地和目的地之间的最短路径。如果有若干条路径都是最短的，那么需要输出最便宜的一条路径。</p>
+<h1 id="输入格式">输入格式:</h1>
+<p>输入说明：输入数据的第1行给出4个正整数N、M、S、D，其中N（2≤N≤500）是城市的个数，顺便假设城市的编号为0~(N−1)；M是高速公路的条数；S是出发地的城市编号；D是目的地的城市编号。随后的M行中，每行给出一条高速公路的信息，分别是：城市1、城市2、高速公路长度、收费额，中间用空格分开，数字均为整数且不超过500。输入保证解的存在。</p>
+<h1 id="输出格式">输出格式:</h1>
+<p>在一行里输出路径的长度和收费总额，数字间以空格分隔，输出结尾不能有多余空格。</p>
+<h1 id="输入样例">输入样例:</h1>
+<p>4 5 0 3<br>
+0 1 1 20<br>
+1 3 2 30 <br>
+0 3 4 10<br>
+0 2 2 20<br>
+2 3 1 20</p>
+<h1 id="输出样例">输出样例:</h1>
+<p>3 40</p>
+<!-- raw HTML omitted -->
+<p>其实关于迪杰斯特拉算法我之前的blog <a href="https://www.cnblogs.com/liuzhaojun/p/11132220.html">https://www.cnblogs.com/liuzhaojun/p/11132220.html</a>有详细的解释       <br>
+陈越姥姥确实讲的好，这道题的难点就是一条边有两个权重，长度和花费。一个简单的邻接矩阵是无法存储的，所以    <br>
+想到，用三维数组，其实不是我想到了，是我看了别人的blog，微笑脸。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#75715e">/*
+</span><span style="color:#75715e">    Name:
+</span><span style="color:#75715e">    Copyright:
+</span><span style="color:#75715e">    Author:  流照君
+</span><span style="color:#75715e">    Date: data
+</span><span style="color:#75715e">    Description:
+</span><span style="color:#75715e">*/</span>
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;string&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;algorithm&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#define inf 1005
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> <span style="color:#66d9ef">namespace</span> std;
+<span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">long</span> <span style="color:#66d9ef">long</span> ll;
+<span style="color:#66d9ef">int</span> n,m,s,d;   <span style="color:#75715e">//三元组 
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">int</span> mat[inf][inf][<span style="color:#ae81ff">2</span>],dis[inf],pay[inf],book[inf];
+<span style="color:#66d9ef">void</span>  <span style="color:#a6e22e">Dijkstra</span>()
+{
+	book[s]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>n;i<span style="color:#f92672">++</span>)
+	{
+		<span style="color:#66d9ef">int</span> min1<span style="color:#f92672">=</span>inf;
+		<span style="color:#66d9ef">int</span> flag<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+		<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;j<span style="color:#f92672">&lt;</span>n;j<span style="color:#f92672">++</span>)<span style="color:#75715e">//找出dis数组中未标记的最小点 
+</span><span style="color:#75715e"></span>		{
+			<span style="color:#66d9ef">if</span>(dis[i]<span style="color:#f92672">&lt;</span>min1<span style="color:#f92672">&amp;&amp;</span>book[i]<span style="color:#f92672">==</span><span style="color:#ae81ff">0</span>)
+			{
+				min1<span style="color:#f92672">=</span>dis[i];
+				flag<span style="color:#f92672">=</span>i;
+			}
+		}
+		book[flag]<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>;
+		<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> k<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;k<span style="color:#f92672">&lt;</span>n;k<span style="color:#f92672">++</span>)
+		{
+			 <span style="color:#66d9ef">if</span>(dis[flag]<span style="color:#f92672">+</span>mat[flag][k][<span style="color:#ae81ff">0</span>]<span style="color:#f92672">&lt;</span>dis[k])
+			 {
+				 dis[k]<span style="color:#f92672">=</span>dis[flag]<span style="color:#f92672">+</span>mat[flag][k][<span style="color:#ae81ff">0</span>];
+				 pay[k]<span style="color:#f92672">=</span>pay[flag]<span style="color:#f92672">+</span>mat[flag][k][<span style="color:#ae81ff">1</span>];
+			 } 
+			<span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(dis[flag]<span style="color:#f92672">+</span>mat[flag][k][<span style="color:#ae81ff">0</span>]<span style="color:#f92672">==</span>dis[k]<span style="color:#f92672">&amp;&amp;</span>(pay[k]<span style="color:#f92672">&gt;</span>(pay[flag]<span style="color:#f92672">+</span>(mat[flag][k][<span style="color:#ae81ff">1</span>]))))
+			{
+				pay[k]<span style="color:#f92672">=</span>pay[flag]<span style="color:#f92672">+</span>mat[flag][k][<span style="color:#ae81ff">1</span>];
+			}
+		}
+		
+	}
+}
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span><span style="color:#f92672">**</span> argv)
+{
+<span style="color:#75715e">#ifdef ONLINE_JUDGE</span><span style="color:#75715e">//条件编译，如果有oj则忽略文件读取
+</span><span style="color:#75715e"></span><span style="color:#75715e">#else
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//freopen(&#34;in.txt&#34;, &#34;r&#34;, stdin);//输入输出文件重定向
+</span><span style="color:#75715e"></span>	<span style="color:#75715e">//freopen(&#34;out.txt&#34;, &#34;w&#34;, stdout);
+</span><span style="color:#75715e"></span><span style="color:#75715e">#endif  </span><span style="color:#75715e">//#if, #ifdef, #ifndef这些条件命令的结束标志.
+</span><span style="color:#75715e">//代码位置
+</span><span style="color:#75715e"></span>	<span style="color:#66d9ef">int</span> x,y,l,c;
+	cin<span style="color:#f92672">&gt;&gt;</span>n<span style="color:#f92672">&gt;&gt;</span>m<span style="color:#f92672">&gt;&gt;</span>s<span style="color:#f92672">&gt;&gt;</span>d;
+	fill(mat[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>],mat[<span style="color:#ae81ff">0</span>][<span style="color:#ae81ff">0</span>]<span style="color:#f92672">+</span>inf<span style="color:#f92672">*</span>inf<span style="color:#f92672">*</span><span style="color:#ae81ff">2</span>,inf);
+	fill(dis,dis<span style="color:#f92672">+</span>inf,inf);
+	fill(pay,pay<span style="color:#f92672">+</span>inf,inf);
+	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>n;i<span style="color:#f92672">++</span>)
+		<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;j<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">2</span>;j<span style="color:#f92672">++</span>)
+		mat[i][i][j]<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+	<span style="color:#66d9ef">while</span>(m<span style="color:#f92672">--</span>)
+	{
+		  cin<span style="color:#f92672">&gt;&gt;</span>x<span style="color:#f92672">&gt;&gt;</span>y<span style="color:#f92672">&gt;&gt;</span>l<span style="color:#f92672">&gt;&gt;</span>c;
+		  mat[x][y][<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=</span>l;
+		  mat[y][x][<span style="color:#ae81ff">0</span>]<span style="color:#f92672">=</span>l;
+		  mat[x][y][<span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>c;
+		  mat[y][x][<span style="color:#ae81ff">1</span>]<span style="color:#f92672">=</span>c;
+	}
+	<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span>n;i<span style="color:#f92672">++</span>)
+	{
+		dis[i]<span style="color:#f92672">=</span>mat[s][i][<span style="color:#ae81ff">0</span>];
+		pay[i]<span style="color:#f92672">=</span>mat[s][i][<span style="color:#ae81ff">1</span>];
+	}
+	Dijkstra();
+	cout<span style="color:#f92672">&lt;&lt;</span>dis[d]<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; &#34;</span><span style="color:#f92672">&lt;&lt;</span>pay[d]<span style="color:#f92672">&lt;&lt;</span>endl; <span style="color:#75715e">//思考为什么pay[d]一定是最小的？？？
+</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+    
+}
+</code></pre></div>
+              
+            </div>
+          </div>
+          <div id="post-footer" class="post-footer main-content-wrap">
+            
+              
+                
+                
+                  <div class="post-footer-tags">
+                    <span class="text-color-light text-small">标签</span><br/>
+                    
+  <a class="tag tag--primary tag--small" href="https://liuzhaojunx.github.io/tags/pat/">pat</a>
+
+  <a class="tag tag--primary tag--small" href="https://liuzhaojunx.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">最短路径</a>
+
+                  </div>
+                
+              
+            
+            <span id="/2020/03/%E6%97%85%E6%B8%B8%E8%A7%84%E5%88%92/" class="leancloud_visitors" data-flag-title="旅游规划">
+              <span class="post-meta-item-text">文章阅读量 </span>
+              <span class="leancloud-visitors-count">1000000</span>
+              <p></p>
+            </span>
+            <div id="vcomments"></div>
+            <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+            <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+            <script type="text/javascript">
+              new Valine({
+                el: '#vcomments' ,
+                appId: 'TmXoiA3FH59aDel8zt5sLGMN-MdYXbMMI',
+                appKey: 'zoYikeWtP7tX9RCL9on78Qld',
+                notify: 'false',
+                verify: '',
+                avatar:'mp', 
+                placeholder: '说点什么吧',
+                visitor: 'true'
+              });
+            </script>
+            <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://liuzhaojunx.github.io/2020/03/%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%E7%9A%84%E8%80%83%E8%AF%95/" data-tooltip="哈利波特的考试">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://liuzhaojunx.github.io/2020/03/%E5%85%AC%E8%B7%AF%E6%9D%91%E6%9D%91%E9%80%9A/" data-tooltip="公路村村通">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+            
+              
+                <div id="disqus_thread">
+  <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+              
+            
+          </div>
+        </article>
+        <footer id="footer" class="main-content-wrap">
+  <span class="copyrights">
+    &copy; 2020 liuzhaojunx. All Rights Reserved
+  </span>
+</footer>
+
+      </div>
+      <div id="bottom-bar" class="post-bottom-bar" data-behavior="5">
+        <div class="post-actions-wrap">
+  
+      <nav >
+        <ul class="post-actions post-action-nav">
+          
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://liuzhaojunx.github.io/2020/03/%E5%93%88%E5%88%A9%E6%B3%A2%E7%89%B9%E7%9A%84%E8%80%83%E8%AF%95/" data-tooltip="哈利波特的考试">
+              
+                  <i class="fa fa-angle-left"></i>
+                  <span class="hide-xs hide-sm text-small icon-ml">上一篇</span>
+                </a>
+            </li>
+            <li class="post-action">
+              
+                <a class="post-action-btn btn btn--default tooltip--top" href="https://liuzhaojunx.github.io/2020/03/%E5%85%AC%E8%B7%AF%E6%9D%91%E6%9D%91%E9%80%9A/" data-tooltip="公路村村通">
+              
+                  <span class="hide-xs hide-sm text-small icon-mr">下一篇</span>
+                  <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+          
+        </ul>
+      </nav>
+    <ul class="post-actions post-action-share" >
+      
+        <li class="post-action hide-lg hide-md hide-sm">
+          <a class="post-action-btn btn btn--default btn-open-shareoptions" href="#btn-open-shareoptions">
+            <i class="fa fa-share-alt"></i>
+          </a>
+        </li>
+        
+      
+      
+        <li class="post-action">
+          <a class="post-action-btn btn btn--default" href="#disqus_thread">
+            <i class="fa fa-comment-o"></i>
+          </a>
+        </li>
+      
+      <li class="post-action">
+        
+          <a class="post-action-btn btn btn--default" href="#">
+        
+          <i class="fa fa-list"></i>
+        </a>
+      </li>
+    </ul>
+  
+</div>
+
+      </div>
+      <div id="share-options-bar" class="share-options-bar" data-behavior="5">
+  <i id="btn-close-shareoptions" class="fa fa-close"></i>
+  <ul class="share-options">
+    
+  </ul>
+</div>
+<div id="share-options-mask" class="share-options-mask"></div>
+    </div>
+    
+    <div id="about">
+  <div id="about-card">
+    <div id="about-btn-close">
+      <i class="fa fa-remove"></i>
+    </div>
+    
+      <img id="about-card-picture" src="https://liuzhaojunx.github.io/images/touxiang.jpg" alt="作者的图片" />
+    
+    <h4 id="about-card-name">liuzhaojunx</h4>
+    
+      <div id="about-card-bio">no pain no gain</div>
+    
+    
+      <div id="about-card-job">
+        <i class="fa fa-briefcase"></i>
+        <br/>
+        学生
+      </div>
+    
+    
+      <div id="about-card-location">
+        <i class="fa fa-map-marker"></i>
+        <br/>
+        九江
+      </div>
+    
+  </div>
+</div>
+
+    
+
+    
+  
+    
+      <div id="cover" style="background-image:url('https://liuzhaojunx.github.io/images/cover.jpg');"></div>
+    
+  
+
+
+    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.7/js/jquery.fancybox.min.js" integrity="sha256-GEAnjcTqVP+vBp3SSc8bEDQqvWAZMiHyUSIorrWwH50=" crossorigin="anonymous"></script>
+
+
+<script src="https://liuzhaojunx.github.io/js/script-pcw6v3xilnxydl1vddzazdverrnn9ctynvnxgwho987mfyqkuylcb1nlt.min.js"></script>
+
+
+  
+    <script src="https://liuzhaojunx.github.io/js/clicklove.js"></script>
+  
+
+  
+    <script src="https://liuzhaojunx.github.io/js/snow.js"></script>
+  
+
+<script lang="javascript">
+window.onload = updateMinWidth;
+window.onresize = updateMinWidth;
+document.getElementById("sidebar").addEventListener("transitionend", updateMinWidth);
+function updateMinWidth() {
+  var sidebar = document.getElementById("sidebar");
+  var main = document.getElementById("main");
+  main.style.minWidth = "";
+  var w1 = getComputedStyle(main).getPropertyValue("min-width");
+  var w2 = getComputedStyle(sidebar).getPropertyValue("width");
+  var w3 = getComputedStyle(sidebar).getPropertyValue("left");
+  main.style.minWidth = `calc(${w1} - ${w2} - ${w3})`;
+}
+</script>
+
+<script>
+$(document).ready(function() {
+  hljs.configure({ classPrefix: '', useBR: false });
+  $('pre.code-highlight > code, pre > code').each(function(i, block) {
+    if (!$(this).hasClass('codeblock')) {
+      $(this).addClass('codeblock');
+    }
+    hljs.highlightBlock(block);
+  });
+});
+</script>
+
+
+  
+    
+      <script>
+        var disqus_config = function () {
+          this.page.url = 'https:\/\/liuzhaojunx.github.io\/2020\/03\/%E6%97%85%E6%B8%B8%E8%A7%84%E5%88%92\/';
+          
+            this.page.identifier = '\/2020\/03\/%E6%97%85%E6%B8%B8%E8%A7%84%E5%88%92\/'
+          
+        };
+        (function() {
+          
+          
+          if (window.location.hostname == "localhost") {
+            return;
+          }
+          var d = document, s = d.createElement('script');
+          var disqus_shortname = 'valine';
+          s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+        })();
+      </script>
+    
+  
+
+
+
+
+    
+  </body>
+</html>
+
